@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<schema>
+  <!-- the event stream -->
+  <table name="event">
+    <column name="id" type="integer" autoincrement="true" unsigned="true"/>
+    <column name="type" type="string" length="128" />
+    <column name="payload"  type="text" notnull="false" />
+    <column name="meta"  type="text" notnull="false" />
+
+    <index name="primary" primary="true" columns="id"/>
+  </table>
+
+  <!-- state -->
+    <table name="state">
+      <column name="key" type="string" length="128" notnull="true" />
+      <column name="data" type="text" notnull="false" />
+
+      <index name="primary" primary="true" columns="key"/>
+    </table>
+
+  <table name="projector">
+    <column name="name" type="string" length="128" notnull="true" />
+
+    <column name="playhead" type="integer" notnull="false" />
+
+    <index name="primary" primary="true" columns="name"/>
+  </table>
+
+</schema>
