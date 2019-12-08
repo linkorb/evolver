@@ -23,4 +23,9 @@ class ArrayStateStore implements StateStoreInterface
     {
         $this->states[$key] = $state;
     }
+
+    public function reset(): void
+    {
+        $this->states = [];
+    }
 }

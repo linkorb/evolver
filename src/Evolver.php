@@ -30,6 +30,11 @@ class Evolver
         return $this->stateStore;
     }
 
+    public function resetState(): void
+    {
+        $this->getStateStore()->reset();
+    }
+
     public function setState(string $key, array $state): void
     {
         $this->stateStore->setState($key, $state);

@@ -36,4 +36,10 @@ class PdoStateStore implements StateStoreInterface
             'data' => json_encode($state, JSON_UNESCAPED_SLASHES),
         ]);
     }
+
+    public function reset(): void
+    {
+        $stmt = $this->pdo->prepare("TRUNCATE state;");
+        $stmt->execute();
+    }
 }
